@@ -44,10 +44,10 @@
         $i = 0;
         $resultado = 0;
         for($i; $i<=10;$i++){
-            $resultado .= "<br>".$num1." * ". $i." = ".($num1*$i);
+            $resultado .= "\n".$num1." * ". $i." = ".($num1*$i);
     
         }
-        return $resultado; 
+            return $resultado; 
     }
 
     function areaRetangulo($base,$altura){
@@ -122,11 +122,9 @@
     function verificarnum($num){
         if($num > 0){
             return "positivo";
-        }
-        if($num = 0){
+        }else if($num == 0){
             return "neutro";
-        }
-        if($num < 0){
+        }else{
             return "negativo";
         }
     }
@@ -203,12 +201,12 @@
         }
         return $fat;
     }
-    //13
+    //21
     function contpar($num){
         $cont = 0;
         for($i = 1; $i <= $num; $i++){
             if($i % 2 == 0){
-                $cont .= "<br>". $i;
+                $cont .= "\n". $i;
             }
         }
         return $cont;
@@ -236,7 +234,7 @@
                 }
             }
             if($divisor == 2){
-                $resultado .= "<br>".$i;
+                $resultado .= "\n".$i;
             }
         }
         return $resultado;
@@ -256,6 +254,13 @@
             return $result;
         }
     }
+    function verificarDatas($mes,$dia,$ano){
+        if(checkdate($mes,$dia,$ano)==true){
+            return "Data Válida";
+        }else{
+            return "Data Inválida";
+        }
+    }
 //17
     function media($num1,$num2,$num3,$num4,$num5){
         $media = ($num1+$num2+$num3+$num4+$num5)/5;
@@ -266,7 +271,7 @@
         $divisores = 0;
         for($i = 2; $i <= $num; $i++){
             if($num % $i == 0){
-                $divisores .= "<br>".$i;
+                $divisores .= "\n".$i;
             }
         }
         return $divisores;
@@ -340,12 +345,12 @@
     function imprimir($num){
         $resul = 0;
         for($i=1; $i<=$num;$i++){
-            $resul .= "<br>".$i;
+            $resul .= "\n".$i;
         }
         return $resul;
     }
 //18
-    function negativo($num1,$num2,$num3,$num4,$num5,$num6,$num7,$num8,$num9,$num10){
+    function negativo($num1,$num2,$num3,$num4,$num5){
         $resul = 0;
         if($num1<0){
             $resul++;
@@ -362,25 +367,10 @@
         if($num5<0){
             $resul++;
         }
-        if($num6<0){
-            $resul++;
-        }
-        if($num7<0){
-            $resul++;
-        }
-        if($num8<0){
-            $resul++;
-        }
-        if($num9<0){
-            $resul++;
-        }
-        if($num10<0){
-            $resul++;
-        }
         return $resul;
     }
 //19
-    function inferior($num1,$num2,$num3,$num4,$num5,$num6,$num7,$num8,$num9,$num10){
+    function inferior($num1,$num2,$num3,$num4,$num5){
         $resul = 0;
         if($num1<40){
             $resul+=$num1;
@@ -396,21 +386,6 @@
         }
         if($num5<40){
             $resul+=$num5;
-        }
-        if($num6<40){
-            $resul+=$num6;
-        }
-        if($num7<40){
-            $resul+=$num7;
-        }
-        if($num8<40){
-            $resul+=$num8;
-        }
-        if($num9<40){
-            $resul+=$num9;
-        }
-        if($num10<40){
-            $resul+=$num10;
         }
         return $resul;
     }
@@ -455,11 +430,91 @@ function maioremedia($num1,$num2,$num3){
         return $rea;
     }
 //24
-    function pesquisa($sal,$fil)
-        
+    function prefeitura($sal,$sal1,$fil,$fil1){
+        /*$j = 0;
+        for($i=1; $i<=$j;$i++){
+            if($sal<0){
+
+                return $resultado;
+            }       
+            if($sal);
+        }
+        */
+        $num = 0;
+        $numm = 0;
+        $i = 1;
+        $somas =0;
+        $somaf=0;
+        $somam=0;
+        $c=1;
+        $resultado=0;
+        if($sal>$numm){
+            $numm = $sal;
+        }
+        if($sal<150){
+            $num = $sal;
+            $c++;
+        }
+        if($sal1>$numm){
+            $numm = $sal1;
+        }
+        if($sal1<150){
+            $num = $sal1;
+            $c++;
+        }
+        $i++;
+        $somas+=$sal+$sal1;
+        $somaf+=$fil+$fil1;
+        $somam+=$num;
+
+        $resultado .= "\n.A media do salario é: ".$somas/$i;
+        $resultado .= "\n.A media do numero de filhos é: ".$somaf/$i;
+        $resultado .= "\n.O maior salario é: ".$numm;
+        $resultado .= "\n.O percentual de pessoas com salarios menor que 150 é: ".$somam/$c."%";
+        return $resultado;
+    }
+//25-42
+    function areadacircunferencia($raio){
+        $area = 3.14159*$raio*$raio;
+        return $area;
+    }
+//26-43
+    function trabalho($ht,$vh,$pd){
+        $sb=1;
+        $td=1;
+        $sl=1;
+        $resultado="";
+        $sb = $ht * $vh;
+        $td = $sb * ($pd/100);
+        $sl = $sb - $td;
+        $resultado.= "\n As horas trabalhadas sao: ". $ht;
+        $resultado.= "\n O salario bruto é: ". $sb;
+        $resultado.= "\n O desconto é: ". $td;
+        $resultado.= "\n O salario liquido é: ". $sl;
+        return $resultado;
+    }
+//27-44
+    //function celsusFahrenheit
+//28-45
+    function volume($raio,$altura){
+        return (3.14159*$raio*$raio*$altura);
+    }
+//29-46
+    function Velocidade($temp,$velo){
+        $distancia=0;
+        $litros=0;
+        $resultado=0;
+        $distancia = $temp*$velo;
+        $litros = ($distancia/12);
+        $resultado.="\n Nesta viagem de ". $temp."horas";
+        $resultado.="\n A velocidade Media foi de ". $velo."km/h";
+        $resultado.="\n O veiculo percorreu ". $distancia."km";
+        $resultado.="\n O veiculo consumiu ". $litros."ml";
+        return $resultado;
+    }
 
 
-
+    /*
     //Resultados
     echo "<br>A soma dos números é: ". somar(5,8);
     echo "<br>A Subtraçao dos números é: ". subtrair(9,15);
@@ -502,7 +557,7 @@ function maioremedia($num1,$num2,$num3){
     echo "<br>". maioremedia(1,2,3);
     echo "<br>A media dos numeros é: ". mediaa(10,7,6,8,9);
     echo "<br>O reajuste é: ". reajuste(28000);
-
+    */
 
     
 
@@ -511,3 +566,18 @@ function maioremedia($num1,$num2,$num3){
 
 
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funcoes</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <header>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+</body>
